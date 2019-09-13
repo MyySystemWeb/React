@@ -44,12 +44,11 @@ const estilo = StyleSheet.create({
   texto: {
     marginTop: 10,
     color: "blue",
-    fontSize: 20,
+    fontSize: 25,
     textAlign: "center"
   },
   titulo: {
-    padding:10,
-    fontSize: 25,
+    fontSize: 35,
     color: "white",
     backgroundColor: "blue",
     textAlign: "center"
