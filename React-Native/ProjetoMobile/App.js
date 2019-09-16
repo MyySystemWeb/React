@@ -1,58 +1,37 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { View, Text, FlatList } from "react-native";
 
-const App = () => {
-  return (
-    <MeuTextoDinamico titulo="Array de Nomes" />
-  );
+
+export default class App extends Component {
+    constructor(props) {
+        super(props);
+        this.states = {
+            nomes: [
+                { nome: "Helio" },
+                { nome: "Aline" },
+                { nome: "Teté" },
+            ]
+        }
+
+    }
+
+    mostrarItem(item) {
+        return (
+            <Text>
+                {item.nome}
+            </Text>
+        );
+    }
+
+    render() {
+        return (
+            <View>
+                <FlatList data={this.states.nomes}
+                    renderItem={({ item }) => this.mostrarItem(item)}
+                ></FlatList>
+            </View>
+
+        );
+    }
+
 }
-class MeuTextoDinamico extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {teste:"xxx"};
-
-    var nomes = ["Helio", "Aline", "Teté"];
-
-    setInterval(() => {
-      var num = Math.floor(Math.random() * nomes.length);
-      let objetoJs = { nome: nomes[num] };
-      this.setState(objetoJs);
-    }, 1500);
-
-    setInterval(() => {
-      let objetoJs = { teste: "Mudou" };
-      this.setState(objetoJs);
-    }, 2000);
-  }
-
-
-
-
-  render() {
-    return (
-      <View>
-        <Text style={estilo.titulo}>{this.props.titulo}</Text>
-        <Text style={estilo.texto}>{this.state.teste}</Text>
-        <Text style={estilo.texto}>{this.state.nome}</Text>
-      </View>
-    );
-  }
-}
-export default App;
-
-const estilo = StyleSheet.create({
-  texto: {
-    marginTop: 10,
-    color: "blue",
-    fontSize: 20,
-    textAlign: "center"
-  },
-  titulo: {
-    padding:10,
-    fontSize: 25,
-    color: "white",
-    backgroundColor: "blue",
-    textAlign: "center"
-  }
-
-});
