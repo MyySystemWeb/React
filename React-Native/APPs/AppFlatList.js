@@ -16,11 +16,8 @@ export default class App extends Component {
     meuItem(item) {
         return (
             <Text>{item.nome}</Text>
-
         );
     }
-
-
     render() {
         return (
             <View>
@@ -29,13 +26,8 @@ export default class App extends Component {
                     <Text>
                         {item.nome}
                     </Text>
-
                 )} ></FlatList>
-
                 <FlatList data={this.states.nomes} renderItem={({ item }) => this.meuItem(item)  } ></FlatList>
-
-
-
             </View>
         );
     }

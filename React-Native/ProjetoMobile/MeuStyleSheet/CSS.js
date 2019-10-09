@@ -13,6 +13,17 @@ const estilo = StyleSheet.create({
       color: "white",
       backgroundColor: "blue",
       textAlign: "center"
+    },
+    letra: {
+      padding:5,
+      fontSize: 20,
+      marginTop:10, 
+      color: "white",
+      backgroundColor: "blue",
+      textAlign: "center"
+    },
+    body:{
+      flex:1
     }
   
   });
