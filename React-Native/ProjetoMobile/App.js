@@ -1,35 +1,16 @@
 import React, { Component } from "react"
-import { View, Text, Platform, StyleSheet } from "react-native";
+import {  createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
+import Tela1 from './src/screens/tela1';
+import Tela2 from './src/screens/tela2';
 
-export default class App extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { texto: '', infoDb:'' }
+const AppNavigator = createStackNavigator({
+    Tela1: {
+        screen: Tela1
+    },
+    Tela2: {
+        screen: Tela2
     }
-    render() {
-        return (
-   <View>
-       <Text style={estilo.sistema} >Sistema: {Platform.OS}</Text>
-       <Text>Versão: {Platform.Version}</Text>
-   </View>
-        );
-    }
-}
-
-
-const estilo = StyleSheet.create({
-
-    sistema:Platform.select(
-        {
-            ios:{
-                color:"red"
-            },
-            android:{
-                color:"blue"
-            }
-        }
-    )
-
 });
+export default createAppContainer(AppNavigator);
