@@ -11,7 +11,16 @@ export default class tela1 extends Component {
     }
 
     static navigationOptions = {
-        title: 'Tela 1'
+        title: 'Tela 1',
+         /** Configuração por tela */
+        headerStyle:{
+            backgroundColor:'black'
+        },
+        headerTintColor:'white',
+        headerTitleStyle:{
+            fontWeight:'bold',
+            fontSize:20
+        }
     }
 
     setNome(valor){

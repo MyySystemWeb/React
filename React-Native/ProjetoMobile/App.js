@@ -10,7 +10,26 @@ const AppNavigator = createStackNavigator({
         screen: Tela1
     },
     Tela2: {
-        screen: Tela2
+        screen: Tela2,
+            /** Configuração por tela */
+        navigationOptions:{
+            headerTintColor:'pink',
+            headerTitleStyle:{
+                fontSize:20
+            }
+        }
+    },
+},{
+    /** Configuração padrão */
+    defaultNavigationOptions:{
+        headerStyle:{
+            backgroundColor:'blue'
+        },
+        headerTintColor:'white',
+        headerTitleStyle:{
+            fontWeight:'bold',
+            fontSize:20
+        }
     }
 });
 export default createAppContainer(AppNavigator);
