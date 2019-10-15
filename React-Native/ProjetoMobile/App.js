@@ -1,39 +1,47 @@
-import React from 'react';
-import { Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { Image } from "react-native";
 
-class HomeScreen extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Home!</Text>
-            </View>
-        );
+import Tela1 from './src/screens/tela1'
+import Tela2 from './src/screens/tela2'
+import Tela3 from './src/screens/tela3'
+import Tela4 from './src/screens/tela4'
+import Tela5 from './src/screens/tela5'
+
+const DrawerNavigator = createDrawerNavigator({
+  Tela1: {
+    screen: Tela1,
+    navigationOptions: {
+      tabBarLabel: 'Home',
+      tabBarIcon: () => (
+        <Image source={require('./src/screens/images/placeholder.png')} />
+      )
     }
-}
+  }, Tela2: {
+    screen: Tela2,
 
-class SettingsScreen extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Settings!</Text>
-            </View>
-        );
+    navigationOptions: {
+      tabBarLabel: 'Home',
+      tabBarIcon: () => (
+        <Image source={require('./src/screens/images/responsive.png')} />
+      )
     }
-}
-
-const TabNavigator = createBottomTabNavigator({
-    Home: HomeScreen,
-    Settings: SettingsScreen,
+  },
+  Tela3: Tela3,
+  Tela4: Tela4,
+  Tela5: Tela5,
 }, {
-    defaultNavigationOptions: {
-        tabBarOptions:{
-            labelStyle:{
-                fontSize:22
-            }
-        }
-    }
+  drawerPosition: 'right',
+  drawerWidth: 250,
+  drawerBackgroundColor: 'blue',
+  contentOptions: {
+    activeTintColor: 'red',
+    inactiveTintColor: '#fff',
+    activeBackgroundColor: '#fff',
+    inactiveBackgroundColor: '#000'
+
+
+  }
 });
 
-export default createAppContainer(TabNavigator);
+export default Router = createAppContainer(DrawerNavigator);
