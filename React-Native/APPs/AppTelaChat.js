@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Platform, StyleSheet, FlatList,ImageBackground } from 'react-native';
 
-import MsgItem from './src/MsgItem'
+import MsgItem from '../ProjetoMobile/src/MsgItem'
 export default class PrimeiroProjeto extends Component {
 
   constructor(props) {
