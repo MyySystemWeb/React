@@ -4,10 +4,10 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import {  Image,StyleSheet } from 'react-native';
 
-import HomeL from './src/screens/Home';
-import Contato from './src/screens/Contato';
-import Horario from './src/screens/Horario';
-import Sobre from './src/screens/Sobre';
+import HomeL from '../ProjetoMobile/src/screens/Home';
+import Contato from '../ProjetoMobile/src/screens/Contato';
+import Horario from '../ProjetoMobile/src/screens/Horario';
+import Sobre from '../ProjetoMobile/src/screens/Sobre';
 
 const Navegador = createBottomTabNavigator({
   Home:{

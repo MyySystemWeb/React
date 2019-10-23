@@ -8,7 +8,6 @@ export default class App extends Component {
         super(props);
         this.state = { valor: true }
     }
-
     render() {
         return (
             <View>
@@ -20,5 +19,4 @@ export default class App extends Component {
             </View>
         );
     }
-
 }
