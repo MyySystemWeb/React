@@ -75,7 +75,7 @@ export default class HomeList extends Component {
             <View>
                 <FlatList
                     data={this.state.list}
-                    renderItem={({ item }) => <Lista data={item} navigation={(this.props.navigation)} />} />
+                    renderItem={({ item }) => <Lista data={item} navigation={(this.props.navigation,item)} />} />
             </View>
         );
     }

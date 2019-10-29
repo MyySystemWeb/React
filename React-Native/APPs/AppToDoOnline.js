@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
-import Item from './src/Item'
+import Item from '../ProjetoMobile/src/Item'
 
 export default class TodoOnline extends Component {
     constructor(props) {
