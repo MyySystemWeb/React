@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Button, Image } from "react-native";
 import imagePicker from "react-native-image-picker";
 import RNFetchBlob from 'react-native-fetch-blob'
-import firebase from './src/config/firebaseConfig'
+import firebase from '../src/config/firebaseConfig'
 
 window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
 window.Blob = RNFetchBlob.polyfill.Blob;
@@ -23,8 +23,7 @@ export default class App extends Component {
     }
     imagePicker.showImagePicker(options, (resposta) => {
       if (resposta.uri) {
-        let  fileName =resposta.fileName;
-        let imagem = firebase.acessarPastaAbaixo(fileName);
+        let imagem = firebase.acessarPastaAbaixo('imagem.jpg');
         let mime = 'image/jpeg'
         RNFetchBlob.fs.readFile(resposta.uri, 'base64')
           .then((data) => {
