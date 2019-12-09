@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Button, Image } from "react-native";
 import imagePicker from "react-native-image-picker";
 import RNFetchBlob from 'react-native-fetch-blob'
-import firebase from './src/config/firebaseConfig'
+import firebase from '../src/config/firebaseConfig'
 
 
 window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
@@ -12,7 +12,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      foto: { uri: 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi2vseApKnmAhV_H7kGHdgdDvkQjRx6BAgBEAQ&url=http%3A%2F%2Fwww.techtudo.com.br%2Fdicas-e-tutoriais%2Fnoticia%2F2015%2F08%2Fcomo-mudar-foto-de-perfil-do-facebook-e-continuar-com-curtidas.html&psig=AOvVaw2rNSGw9-lwv8tH52oNY5Jk&ust=1576005461598548' },
+      foto: null,
       pct: 10,
     }
     this.pegarFoto = this.pegarFoto.bind(this);
@@ -38,22 +38,15 @@ export default class App extends Component {
                 let state = this.state;
                 state.pct = pct;
                 this.setState(state);
+                setTimeout(() => { alert("Aguardando") }, 100)
 
-              }, (error) => {
+              }), (error) => {
                 alert(error.code);
               }, () => {
-                //N SEI O Q FAZ, MAS N CHEGOU
-                imagem.getDownloadURL().then(
-                  (url) => {
-                    let state = this.state;
-                    state.foto = { uri: url };
-                    this.setState(state);
-                  });
-              })
-
+                let url = imagem.getDownloadURL;
+                alert("Imagem Salva com sucesso");
+              }
           });
-
-
       }
     })
   }
@@ -62,15 +55,13 @@ export default class App extends Component {
     return (
       <View>
         <View >
-          <Text style={{ fontSize: 26, marginBottom: 10 }}>App</Text>
-          <Button title="Carregar Foto " onPress={this.pegarFoto} />
-          <Text>{this.state.pct}%</Text>
+        <Text style={{ fontSize: 26, marginBottom: 10 }}>App</Text>
+        <Button title="Carregar Foto " onPress={this.pegarFoto} />
+        <Text>{this.state.pct}%</Text>
         </View >
-
-        <View style={{ width: (this.state.pct + '%'), height: 40, backgroundColor: '#ff0000' }} />
-        <Image source={this.state.foto} style={{ height: 300, width: 300, backgroundColor: 'gray' }} ></Image>
+        <View  style={{ width: (this.state.pct+'%'), height: 40, backgroundColor: '#ff0000' }}/>
       </View>
-
+     
     );
   }
 }
