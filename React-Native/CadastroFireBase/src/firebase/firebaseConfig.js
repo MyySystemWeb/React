@@ -1,6 +1,6 @@
 import firebase from "firebase";
 // Your web app's Firebase configuration
-var firebaseConfig = {
+var fConfig = {
     apiKey: "AIzaSyCKxyOfRDHmdFHhZAu0olci77aPfoQKaR0",
     authDomain: "cadastrofirebase-b1595.firebaseapp.com",
     databaseURL: "https://cadastrofirebase-b1595.firebaseio.com",
@@ -10,10 +10,10 @@ var firebaseConfig = {
     appId: "1:272037910661:web:62a5b29f95bca9b773b1ec"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(fConfig);
 
 class firebaseClass {
-
+ 
 
     getUserInfo(callback) {
         firebase.database().ref("usuarios").child(firebase.auth().currentUser.uid).once('value').then(callback);
@@ -23,6 +23,13 @@ class firebaseClass {
         firebase.auth().onAuthStateChanged(callback);
     }
 
+    criarUsuario(email, senha){
+
+        firebase.auth().createUserWithEmailAndPassword(email, senha)
+        .catch((error) => {
+          alert(error.code);
+        })
+    }
     login(email, senha, callback) {
         return firebase.auth().signInWithEmailAndPassword(email, senha)
             .catch((error) => {
@@ -71,5 +78,4 @@ class firebaseClass {
     }
 
 }
-
-export default new firebaseClass();
+export default firebase;
