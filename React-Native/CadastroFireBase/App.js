@@ -1,3 +1,5 @@
+
+
 import React, { Component } from 'react';
 import { View, Text, ImageBackground, Image, TextInput, Button, FlatList, ScrollView } from 'react-native';
 import css from './src/Estilo/estiloCss';
